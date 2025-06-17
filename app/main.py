@@ -21,32 +21,38 @@ def main() -> None:
         create_directory_if_not_exists(config.dest)
 
         filename = f"{config.prefix}{ch}.pdf"
-        canvas = Canvas(os.path.join(config.dest, filename), pagesize=A4)
+        filepath = os.path.join(config.dest, filename)
+        canvas = Canvas(filepath, pagesize=A4)
 
-        images = []
+        image_tags = []
         try:
             url = config.url.format(ch=ch)
             page_req = requests.get(url)
             soup = BeautifulSoup(page_req.content, "html.parser")
-            images = soup.select(config.selector)
+            image_tags = soup.select(config.selector)
         except Exception as e:
             print(f"{Fore.RED}  Failed to process {url}:{Style.RESET_ALL}")
-            print({str(e)})
+            print(str(e))
 
-        for item in images:
+        for item in image_tags:
             try:
+                print(f"Downloading: {item['src']}", end="\t")
                 response = requests.get(item["src"], timeout=10)
                 response.raise_for_status()
                 img = Image.open(BytesIO(response.content)).convert("RGB")
 
                 add_image_to_pdf(img, canvas)
+                print(f"{Fore.GREEN}[SUCCESS]{Style.RESET_ALL}")
             except Exception as e:
+                print(f"{Fore.RED}[FAILED]{Style.RESET_ALL}")
                 print(
                     f"{Fore.RED}  Failed to process {item['src']}:{str(e)}{Style.RESET_ALL}"
                 )
-                print(e)
+                print(str(e))
 
         canvas.save()
+
+    print(f"{Fore.GREEN}\tDownload finished{Style.RESET_ALL}")
 
 
 if __name__ == "__main__":
