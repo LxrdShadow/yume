@@ -1,6 +1,8 @@
+from bs4 import BeautifulSoup
 from colorama import Fore, Style
 
 from src.config import Config
+from src.errors import BoundError
 
 
 def main() -> None:
@@ -45,7 +47,37 @@ a selector matching the images\n{Style.RESET_ALL}"
     )
     selector = input("selector: ")
 
-    return Config(dest, prefix, url, selector)
+    while True:
+        try:
+            print(
+                f"\n{Fore.YELLOW}> Enter the first chapter to download{Style.RESET_ALL}"
+            )
+            start = int(input("from chapter: "))
+            break
+        except Exception:
+            print(
+                f"\n{Fore.RED}  Value error. Please enter a valid chapter number{Style.RESET_ALL}"
+            )
+
+    while True:
+        try:
+            print(
+                f"\n{Fore.YELLOW}> Enter the last chapter to download{Style.RESET_ALL}"
+            )
+            end = int(input("to chapter: "))
+            if start > end:
+                raise BoundError("Start chapter can't be higher than the end chapter")
+
+            break
+        except BoundError as e:
+            print(f"\n{Fore.RED}  Value error. {str(e)}{Style.RESET_ALL}")
+
+        except Exception:
+            print(
+                f"\n{Fore.RED}  Value error. Please enter a valid chapter number{Style.RESET_ALL}"
+            )
+
+    return Config(dest, prefix, url, selector, start, end)
 
 
 if __name__ == "__main__":
