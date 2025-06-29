@@ -16,6 +16,7 @@ def main() -> None:
     config = Config.get_config()
 
     print(config)
+    print()
     for ch in range(config.start, config.end + 1):
         print(f"{Fore.CYAN}\tDownloading chapter {ch}{Style.RESET_ALL}")
         create_directory_if_not_exists(config.dest)
