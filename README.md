@@ -1,3 +1,5 @@
+![yume-logo](https://github.com/user-attachments/assets/8b3802fa-e89b-4e44-8a0d-be5b318240a1)
+
 # 🌙 Yume - Terminal Manga Downloader
 
 **Yume** (夢) is a command-line tool born from insomnia and obsession — a script that scrapes the web to download and bundle manga chapters into PDFs. Feed it a URL pattern, tell it where to save, and it will walk the lonely digital alleys for you, gathering pages one by one... quietly.
