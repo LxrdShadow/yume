@@ -1,4 +1,6 @@
-![yume-logo](https://github.com/user-attachments/assets/8b3802fa-e89b-4e44-8a0d-be5b318240a1)
+<div align="center">
+  <img style="border-radius: 10px" src="https://github.com/user-attachments/assets/e5838821-e4ab-4ea5-a5a2-d6d2f1d8a35e" height="200px" width="200px" alt="yume-logo" />
+</div>
 
 # 🌙 Yume - Terminal Manga Downloader
 
