@@ -77,7 +77,7 @@ MIT. Do what you want, just don’t blame me if it becomes sentient.
 
 ---
 
-It still needs many improvements, mainly a better user experience (a little more user friendliness) and performance. So if you have ideas, please consider forking the repo, make your changes and submit a pull request.
+It still needs many improvements, mainly a better user experience (a little more user friendliness) and performance. So if you have ideas, please consider opening an issue or fork the repo, make your changes and submit a pull request.
 
 ---
 
