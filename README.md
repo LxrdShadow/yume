@@ -69,11 +69,15 @@ downloads/
 
 Because sometimes we can't sleep.  
 Because the internet is noisy.  
-Because manga saved us once, and we want to hold on to those pages.  
+Because manga saved us once, and we want to hold on to those pages.
 
 ## 🧘 License
 
 MIT. Do what you want, just don’t blame me if it becomes sentient.
+
+---
+
+It still needs many improvements, mainly a better user experience (a little more user friendliness) and performance. So if you have ideas, please consider forking the repo, make your changes and submit a pull request.
 
 ---
 
